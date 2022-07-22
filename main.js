@@ -43,12 +43,11 @@ function playRound(playerSelection, computerSelection) {
 
 // logic for playing a five round game and allowing the user to select their choice each round.
 function game() {
-  for (let i = 0; i < 5; i++) {
-    let playerSelection = prompt("Type Rock, Paper, or Scissors");
-    playerSelection = playerSelection.toLowerCase();
-    const computerSelection = computerPlay();
-    console.log(playRound(playerSelection, computerSelection));
-  }
+  let playerSelection = prompt("Type Rock, Paper, or Scissors");
+  playerSelection = playerSelection.toLowerCase();
+  const computerSelection = computerPlay();
+  console.log(playRound(playerSelection, computerSelection));
+
   if (playerScore > computerScore) {
     console.log(`You won! final Score: ${playerScore} to ${computerScore}`);
   } else if (computerScore > playerScore) {
@@ -57,7 +56,6 @@ function game() {
     console.log(`You tied :( final score: ${playerScore} to ${computerScore}`);
   }
 }
-game();
 
 /* Game works as desired. I would like to eventually come back and add a gui.
 The logic for this was not too complicated and was good practice for JS syntax and rules.
