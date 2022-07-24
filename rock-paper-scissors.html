@@ -5,28 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/style.css" />
-    <script defer src="main.js"></script>
     <title>RPS</title>
   </head>
   <body>
     <div class="title">
       <h1>Rock, Paper, Scissors</h1>
-      <h2>Can you beat the computer????</h2>
+      <h2 class="result">Can you beat the computer????</h2>
     </div>
 
-    <div class="score-container">
+    <div class="score-container_div">
       <div class="user-score">
         <h2>User Score:</h2>
-        <p>Score:</p>
+        <p class="userScore_p">0</p>
       </div>
 
-      <div class="roundCounter">
-        <h1>Round:</h1>
-        <p>round played</p>
+      <div class="roundCounter_div">
+        <h2>Rounds played:</h2>
+        <p class="roundsPlayed_p">0</p>
       </div>
-      <div class="compScore">
+
+      <div class="compScore_div">
         <h2>Computer Score:</h2>
-        <p>Score:</p>
+        <p class="compScore_p">0</p>
       </div>
     </div>
 
@@ -35,5 +35,6 @@
       <button class="btn paper">PAPER</button>
       <button class="btn scissors">SCISSORS</button>
     </div>
+    <script src="main.js"></script>
   </body>
 </html>

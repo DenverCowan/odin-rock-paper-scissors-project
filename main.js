@@ -1,62 +1,83 @@
-//declare global variables
-let playerScore = 0;
+//cache the DOM, or store it for future use.
+let userScore = 0;
 let computerScore = 0;
-let round = 0;
+let roundsPlayed = 0;
+const userScorep = document.querySelector(".userScore_p");
+const roundsPlayedp = document.querySelector(".roundsPlayed_p");
+const compScorep = document.querySelector(".compScore_p");
+const scoreBoard = document.querySelector(".score-container_div");
+const rock = document.querySelector(".rock");
+const paper = document.querySelector(".paper");
+const scissors = document.querySelector(".scissors");
+let result = document.querySelector(".result");
 
-//function and logic for computer selection
+// function to get simulated choice from computer
 function computerPlay() {
   let number = Math.floor(Math.random() * 3);
   if (number === 1) {
-    return "Rock";
+    return "rock";
   } else if (number === 2) {
-    return "Paper";
-  } else return "Scissors";
+    return "paper";
+  } else return "scissors";
 }
-//console.log(computerPlay()); //check for accurate values
-let playerSelection = "Rock";
-let computerSelection = computerPlay();
-
-//function and logic to play a single round
-//must use backticks in return statements to reference variable like this ${playerScore}
-function playRound(playerSelection, computerSelection) {
-  if (playerSelection == "rock" && computerSelection == "Scissors") {
-    playerScore++;
-    return `You win rock beats scissors! Score: ${playerScore} to ${computerScore}`;
-  } else if (playerSelection == "rock" && computerSelection == "Paper") {
-    computerScore++;
-    return `You lose paper beats rock. Score: ${playerScore} to ${computerScore}`;
-  } else if (playerSelection == "paper" && computerSelection == "Rock") {
-    playerScore++;
-    return `You win paper beats rock. Score: ${playerScore} to ${computerScore};`;
-  } else if (playerSelection == "paper" && computerSelection == "Scissors") {
-    computerScore++;
-    return `You lose scissors beats paper. Score: ${playerScore} to ${computerScore}`;
-  } else if (playerSelection == "scissors" && computerSelection == "Paper") {
-    playerScore++;
-    return `You win scissors beats paper. Score: ${playerScore} to ${computerScore}`;
-  } else if (playerSelection == "scissors" && computerSelection == "Rock") {
-    computerScore++;
-    return `You lose rock beats scissors. Score: ${playerScore} to ${computerScore}`;
-  } else return `That was a draw. Score: ${playerScore} to ${computerScore}`;
+//function to update round count
+function roundsPlayedFunction() {
+  roundsPlayed++;
+  roundsPlayedp.innerHTML = roundsPlayed;
 }
-// console.log(playRound(playerSelection, computerSelection)); //check to make sure logic is working correctly
+//functions for winning, losing, or a tie
+function win(userChoice, computerChoice) {
+  userScore++;
+  userScorep.innerHTML = userScore;
+  result.innerHTML = "YOU WIN! " + "&#127881";
+}
+function lose() {
+  computerScore++;
+  compScorep.innerHTML = computerScore;
+  result.innerHTML = "YOU LOSE " + "&#128542";
+}
+function tie() {
+  result.innerHTML = "IT'S A TIE " + "&#128528";
+}
 
-// logic for playing a five round game and allowing the user to select their choice each round.
-function game() {
-  let playerSelection = prompt("Type Rock, Paper, or Scissors");
-  playerSelection = playerSelection.toLowerCase();
-  const computerSelection = computerPlay();
-  console.log(playRound(playerSelection, computerSelection));
-
-  if (playerScore > computerScore) {
-    console.log(`You won! final Score: ${playerScore} to ${computerScore}`);
-  } else if (computerScore > playerScore) {
-    console.log(`You lose! final score: ${playerScore} to ${computerScore}`);
-  } else {
-    console.log(`You tied :( final score: ${playerScore} to ${computerScore}`);
+//function to start and play a game
+function game(userChoice) {
+  const computerChoice = computerPlay();
+  console.log("computer choice >> " + computerChoice);
+  console.log("player choice >> " + userChoice);
+  //switch statement to compare choices and see who wins
+  switch (userChoice + computerChoice) {
+    case "rockscissors":
+    case "paperrock":
+    case "scissorspaper":
+      win();
+      roundsPlayedFunction();
+      break;
+    case "rockpaper":
+    case "paperscissors":
+    case "scissorsrock":
+      roundsPlayedFunction();
+      lose();
+      break;
+    case "rockrock":
+    case "paperpaper":
+    case "scissorsscissors":
+      roundsPlayedFunction();
+      tie();
+      break;
   }
 }
 
-/* Game works as desired. I would like to eventually come back and add a gui.
-The logic for this was not too complicated and was good practice for JS syntax and rules.
-*/
+function main() {
+  rock.addEventListener("click", function () {
+    game("rock");
+  });
+  paper.addEventListener("click", function () {
+    game("paper");
+  });
+  scissors.addEventListener("click", function () {
+    game("scissors");
+  });
+}
+
+main();

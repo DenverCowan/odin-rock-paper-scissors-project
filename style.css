@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inconsolata&family=Open+Sans:wght@300&family=Roboto:wght@100;300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Asap:wght@600&family=Inconsolata&family=Open+Sans:wght@300&family=Roboto:wght@100;300&display=swap");
 
 * {
   margin: 0;
@@ -7,10 +7,10 @@
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Asap", Helvetica, sans-serif;
   background-color: #333;
   height: 100vh;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .title {
@@ -18,24 +18,29 @@ body {
   text-align: center;
   padding-top: 50px;
 }
-h1 {
-  padding-bottom: 20px;
+.title h1 {
+  padding-bottom: 15px;
+  padding-top: 20px;
+  background-color: red;
 }
 
-.score-container {
+.score-container_div {
   color: white;
   display: flex;
   text-align: center;
   justify-content: space-around;
+  border: 3px solid white;
 }
+
 h2 {
   padding-bottom: 20px;
+  padding-top: 20px;
 }
 
 .btn-container {
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  justify-content: space-around;
   height: 60vh;
 }
 
@@ -45,8 +50,18 @@ button {
   align-items: center;
   background-color: red;
   color: white;
-  border-radius: 5px;
+  border-radius: 50%;
   width: 150px;
   height: 150px;
   font-size: 28px;
+  transition: all 0.4s ease;
+}
+button:hover {
+  background: green;
+  cursor: pointer;
+}
+
+p {
+  font-size: larger;
+  font-weight: bold;
 }
