@@ -1,5 +1,7 @@
 # Rock Paper Scissors project
 
+[LIVE PREVIEW](https://denvercowan.github.io/rps/)
+
 ## Skills I learned or got better with during this project:
 
 -Attaching JS to html files in head and body. if using in head use keyword defer
