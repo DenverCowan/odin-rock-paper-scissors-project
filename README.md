@@ -8,8 +8,6 @@
 
 -changing DOM objects
 
--
-
 ## Future Plans
 
 1. Make a sign up option with a database and user authentication to keep track of users and game records.
