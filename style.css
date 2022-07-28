@@ -37,6 +37,20 @@ h2 {
   padding-top: 20px;
 }
 
+.photoContainer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.photo {
+  border: 1px solid white;
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  margin-top: 20px;
+  margin-bottom: -800px;
+}
+
 .btn-container {
   display: flex;
   align-items: center;
